@@ -1,0 +1,244 @@
+/*--------------------------------------------------------------
+    Global Styles (General Layout and Reset)
+--------------------------------------------------------------*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.chat-app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window {
+  background: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*--------------------------------------------------------------
+    Header Styles (Chat Header and Avatar)
+--------------------------------------------------------------*/
+.chat-header {
+  background-color: #f1f1f1;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header .profile-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-header .profile-info h5 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+    Chat Content Styles (Main Chat Area)
+--------------------------------------------------------------*/
+.chat-content {
+  flex: 1;
+  overflow-y: scroll; /* Enable scrolling */
+  padding: 15px;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+}
+
+.chat-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
+.chat-input textarea {
+  resize: none;
+  height: 40px;
+  max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+    Sidebar Styles (Chat List)
+--------------------------------------------------------------*/
+
+.chat-list .chat-preview img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-preview {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.chat-preview:hover {
+  background-color: #f9f9f9;
+}
+
+.chat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-name {
+  font-weight: bold;
+}
+
+.chat-last-message {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/*--------------------------------------------------------------
+    Message Styles (User and Received Messages)
+--------------------------------------------------------------*/
+
+@keyframes messageFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Message Container */
+.message {
+  display: flex;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: messageFadeIn 0.3s forwards;
+}
+
+.message-avatar {
+  margin-right: 10px;
+}
+
+.message-avatar img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.message-bubble {
+  background-color: #f1f1f1;
+  color: black;
+  border-radius: 15px 15px 15px 0;
+  padding: 10px;
+  max-width: 60%;
+  position: relative;
+}
+
+.message-time {
+  display: block;
+  font-size: 10px;
+  color: black;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+.message.user .message-bubble {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-radius: 15px 15px 0 15px;
+}
+
+/*--------------------------------------------------------------
+    Emoji Container Styles (Hidden by default)
+--------------------------------------------------------------*/
+.emoji-container {
+  position: relative;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  z-index: 1000;
+}
+
+/*--------------------------------------------------------------
+    Typing Indicator Styles
+--------------------------------------------------------------*/
+.typing-indicator {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/*--------------------------------------------------------------
+    Theme Styles (Classic and Modern Themes)
+--------------------------------------------------------------*/
+/* Classic Theme */
+.classic-theme {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.classic-theme .chat-window {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.classic-theme .message {
+  max-width: 80%;
+  overflow-wrap: break-word;
+}
+
+/* Modern Theme */
+.modern-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.modern-theme .chat-window {
+  background-color: #1f1f1f;
+  border: 1px solid #444;
+}
+
+.modern-theme .message {
+  max-width: 80%;
+  overflow-wrap: break-word;
+}
+
+/* Override chat-header text color in Modern Theme */
+.modern-theme .chat-header {
+  color: #000000;
+}
+
+/* Ensure the "Select a contact" message is white in Modern Theme */
+.modern-theme #no-chat-message {
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+    Scrollbar Styles (Hide Scrollbars)
+--------------------------------------------------------------*/
+textarea {
+  overflow: scroll;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
